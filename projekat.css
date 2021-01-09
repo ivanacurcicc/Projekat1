@@ -1,0 +1,7 @@
+.linija .delete {
+    display: none;
+}
+
+.linija:hover .delete {
+    display: revert;
+}

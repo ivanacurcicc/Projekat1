@@ -6,7 +6,7 @@ button.addEventListener('click', (e) => {
     e.preventDefault()
     const select = document.getElementById('prihod/rashod').value;
     const opisTransakcije = document.getElementById('opis').value;
-    const iznosTransakcije = document.getElementById('iznos').value;
+    const iznosTransakcije = document.getElementById('iznos').valueAsNumber;
 
     if (select == 'prihod') {
         const prihod = {
@@ -25,20 +25,29 @@ button.addEventListener('click', (e) => {
         rashodi.push(rashod);
     }
 
-    let suma = 0;
+    let ukupniPrihodi = 0;
 
     prihodi.forEach(el => {
-        suma += el.iznos;
+        ukupniPrihodi += el.iznos;
     });
 
     const lista = document.getElementById('RA')
     lista.replaceChildren();
     lista.textContent = "Rashodi";
 
+    let ukupniRashodi = 0;
+
     rashodi.forEach(el => {
-        el.procenat = (el.iznos / suma) * 100;
+        ukupniRashodi += el.iznos;
+        el.procenat = (el.iznos / ukupniPrihodi) * 100;
         dodajUListu('RA', el, rashodi);
     });
+    let razlika = ukupniPrihodi - ukupniRashodi;
+
+    console.log(ukupniPrihodi)
+    document.getElementById('ukupnaSuma').innerHTML = razlika;
+    document.getElementById('ukupniPrihodi').innerHTML = ukupniPrihodi;
+    document.getElementById('ukupniRashodi').innerHTML = ukupniRashodi;
 
 })
 

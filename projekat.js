@@ -45,9 +45,9 @@ button.addEventListener('click', (e) => {
     let razlika = ukupniPrihodi - ukupniRashodi;
 
     console.log(ukupniPrihodi)
-    document.getElementById('ukupnaSuma').innerHTML = razlika;
-    document.getElementById('ukupniPrihodi').innerHTML = ukupniPrihodi;
-    document.getElementById('ukupniRashodi').innerHTML = ukupniRashodi;
+    document.getElementById('ukupnaSuma').innerHTML = `Bilans: ${razlika}`;
+    document.getElementById('ukupniPrihodi').innerHTML = `Ukupni prihodi: ${ukupniPrihodi}`;
+    document.getElementById('ukupniRashodi').innerHTML = `Ukupni rashodi: ${ukupniRashodi}`;
 
 })
 
